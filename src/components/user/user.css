@@ -1,0 +1,152 @@
+.user-not-found-wrapper,.error-wrapper, .no-repos-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.no-user-icon {
+    height: 200px;
+    width: 200px;
+}
+
+.error-icon{
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.no-user-text, .error-text, .no-repos-text{
+    width: 30%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 140%;
+    text-align: center;
+    color: #808080;
+}
+
+.user-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.personal-data {
+    margin: 30px;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+    width: 320px;
+}
+
+.user-photo {
+    margin-bottom: 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px gray;
+}
+
+.user-name {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 130%;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.login {
+    text-decoration: none;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #0064EB;
+    margin-bottom: 30px;
+}
+
+.followers-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.follower-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+}
+
+.followers, .following {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.repos-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 100%;
+}
+
+.total-repos {
+    margin: 10px 0px 10px 20px;    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.no-repos-icon {
+    width: 110px;
+    height: 110px;
+}
+
+.repo-wrapper {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 32px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.repo-name {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 29px;
+    color: #0064EB;
+    background-color: #fff;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.repo-descr {
+    background-color: #fff;
+    height: 30px;
+    margin-bottom: -10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}

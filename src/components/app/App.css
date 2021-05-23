@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+    background: #E5E5E5;
+}
+
+a {
+    text-decoration: none;
+}
+
+.start-screen-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+}
+
+.start-screen-icon {
+    height: 62px;
+    width: 62px;
+    margin-bottom: 30px;
+}
+
+.start-screen-text {
+    width: 30%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 140%;
+    text-align: center;
+    color: #808080;
+}
