@@ -1,3 +1,8 @@
+.user-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 .user-not-found-wrapper,.error-wrapper, .no-repos-wrapper{
     display: flex;
     flex-direction: column;
@@ -17,7 +22,7 @@
     margin-bottom: 10px;
 }
 
-.no-user-text, .error-text, .no-repos-text{
+.no-user-text, .error-text {
     width: 30%;
     font-family: Inter;
     font-style: normal;
@@ -28,77 +33,11 @@
     color: #808080;
 }
 
-.user-wrapper {
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-}
-
-.personal-data {
-    margin: 30px;
-    display: flex;
-    align-items: flex-start;
-    text-align: left;
-    flex-direction: column;
-    width: 320px;
-}
-
-.user-photo {
-    margin-bottom: 30px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px gray;
-}
-
-.user-name {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 130%;
-    margin-bottom: 10px;
-    color: #000000;
-}
-
-.login {
-    text-decoration: none;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
-    color: #0064EB;
-    margin-bottom: 30px;
-}
-
-.followers-wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.follower-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 3px;
-}
-
-.followers, .following {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
-    color: #000000;
-}
-
 .repos-wrapper {
+	width: 700px;
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 100%;
 }
 
 .total-repos {
@@ -111,42 +50,136 @@
     color: #000000;
 }
 
-.no-repos-icon {
-    width: 110px;
-    height: 110px;
+.repos {
+    min-height: 510px;
 }
 
-.repo-wrapper {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px 32px;
-    background: #fff;
-    border-radius: 5px;
+/* Spinner */
+
+.spinner {
+    margin: auto;
+    display: flex !important;
 }
 
-.repo-name {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 29px;
-    color: #0064EB;
-    background-color: #fff;
-    height: 30px;
-    margin-bottom: 10px;
+@keyframes ldio-atppvq17aw {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
+.ldio-atppvq17aw div {
+	left: 97px;
+	top: 50%;
+	position: absolute;
+	animation: ldio-atppvq17aw linear 1s infinite;
+	background: #0064eb;
+	width: 6px;
+	height: 24px;
+	border-radius: 2.88px / 2.88px;
+	transform-origin: 3px 42px;
+}
+.ldio-atppvq17aw div:nth-child(1) {
+	transform: rotate(0deg);
+	animation-delay: -0.8888888888888888s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(2) {
+	transform: rotate(40deg);
+	animation-delay: -0.7777777777777778s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(3) {
+	transform: rotate(80deg);
+	animation-delay: -0.6666666666666666s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(4) {
+	transform: rotate(120deg);
+	animation-delay: -0.5555555555555556s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(5) {
+	transform: rotate(160deg);
+	animation-delay: -0.4444444444444444s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(6) {
+	transform: rotate(200deg);
+	animation-delay: -0.3333333333333333s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(7) {
+	transform: rotate(240deg);
+	animation-delay: -0.2222222222222222s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(8) {
+	transform: rotate(280deg);
+	animation-delay: -0.1111111111111111s;
+	background: #0064eb;
+}
+.ldio-atppvq17aw div:nth-child(9) {
+	transform: rotate(320deg);
+	animation-delay: 0s;
+	background: #0064eb;
+}
+.loadingio-spinner-spinner-feltka1g4h {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+.ldio-atppvq17aw {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform: translateZ(0) scale(1);
+	backface-visibility: hidden;
+	transform-origin: 0 0; /* see note above */
+}
+.ldio-atppvq17aw div { 
+    box-sizing: content-box; 
 }
 
-.repo-descr {
-    background-color: #fff;
-    height: 30px;
-    margin-bottom: -10px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-    color: #000000;
+@media screen and (min-width: 1200px) { 
+
+	.user-wrapper {
+		justify-content: center;
+	}
+
+	.repos-wrapper {
+		width: 800px;
+	}
+}
+
+@media screen and (min-width: 1150px) { 
+	.repos-wrapper {
+		width: 700px;
+	}
+}
+
+@media screen and (max-width: 700px) { 
+	.user-wrapper {
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		margin: 0px;
+	}
+
+	.repos-wrapper {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin: 0px;
+		margin-top: 20px;
+	}
+
+	.repos {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media screen and (max-width: 500px) { 
+	.repos {
+		min-height: 420px;
+	}
 }

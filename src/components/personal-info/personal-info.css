@@ -1,0 +1,81 @@
+.personal-data {
+    margin: 30px;
+    margin-right: 20px;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+    width: 260px;
+}
+
+.user-photo {
+    margin-bottom: 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px gray;
+}
+
+.user-name {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 130%;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.login {
+    text-decoration: none;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #0064EB;
+    margin-bottom: 30px;
+}
+
+.followers-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.follower-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+}
+
+.followers, .following {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 150%;
+    color: #000000;
+}
+
+@media screen and (max-width: 700px) { 
+    .personal-data {
+        margin: 0px;
+        margin-top: 20px;
+        align-items: center;
+        text-align: left;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .followers-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .followers, .following {
+        margin: 10px;
+    }
+}

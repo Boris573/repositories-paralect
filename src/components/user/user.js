@@ -1,21 +1,26 @@
-import React, {useState, useEffect} from 'react'
-import Pagination from "react-js-pagination";
+import React, { useState, useEffect } from 'react'
 
 import './user.css'
 
 import noUserIcon from '../../img/no-user-icon.png'
 import errorIcon from '../../img/error-icon.png'
-import userIcon from '../../img/user-avatar.png'
-import followersIcon from '../../img/followers-icon.png'
-import followingIcon from '../../img/following-icon.png'
-import noReposIcon from '../../img/no-repos.png'
 
+import PersonalInfo from '../personal-info/personal-info'
+import ShownRepos from '../shown-repos/shown-repos'
+import Pagination from '../pagination/pagination'
 
-const User = ({userId}) => {
+const User = ({ userId }) => {
+    const [loading, setLoading] = useState(false)
     const [user, setUser] = useState({})
     const [found, setFound] = useState(false)
     const [error, setError] = useState(false)
     const [repositories, setRepos] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [totalRepos, setTotalRepos] = useState(0)
+
+    const indexOfLastRepo = currentPage * 4 < totalRepos ? 4 * currentPage : totalRepos
+    const indexOfFirstRepo = (currentPage-1)*4
+    const currentRepos = repositories.slice(indexOfFirstRepo, indexOfLastRepo)
 
     const writeUser = (user) => {
         setUser({
@@ -25,101 +30,108 @@ const User = ({userId}) => {
             followers: user.followers,
             following: user.following,
             url: user.html_url,
-            totalRepos: user.public_repos,
             reposUrl: user.repos_url
         })
         setFound(true)
+        setError(false)
     }
 
+    const paginate = pageNumber => setCurrentPage(pageNumber)
+    const nextPage = (pagesNumber) => currentPage < pagesNumber ? setCurrentPage(curPage => curPage + 1) : {}
+    const prevPage = () => currentPage > 1 ? setCurrentPage(curPage => curPage - 1) : {}
+
     useEffect(() => {
+        setLoading(true)
         fetch(`https://api.github.com/users/${userId}`)
-        .then(res => {
-            if (res.status === 404) {
-                setError(false)
-                setFound(false)
-                throw new Error("User not found")
-            }
-            if (!res.ok) {
-                setFound(false)
-                setError(true)
-            }
-            return res.json()})
-        .then(data => {
-            writeUser(data)
-            if (user.totalRepos !== 0) {
-                fetch(`https://api.github.com/users/${userId}/repos`)
-                .then(res => {
-                    if (!res.ok) {
-                        setFound(false)
-                        setError(true)
-                    }
-                    return res.json()
+            .then(res => {
+                if (res.status === 404) {
+                    setLoading(false)
+                    setFound(false)
+                    setError(false)
+                    throw new Error("Error: User not found")
+                } else if (!res.ok) {
+                    setLoading(false)
+                    setFound(false)
+                    setError(true)
+                    throw new Error("Error: Could not fetch")
+                }
+                setLoading(false)
+                return res.json()
+            })
+            .then(data => {
+                writeUser(data)
+                    setLoading(true)
+                    fetch(`https://api.github.com/users/${userId}/repos`)
+                        .then(res => {
+                            if (!res.ok) {
+                                setLoading(false)
+                                setFound(false)
+                                setError(true)
+                            }
+                            setLoading(false)
+                            return res.json()
+                        })
+                        .then(data => setRepos(data))
                 })
-                .then(data => setRepos(data))
-            }
-        })
-        .catch(() => {
-            setFound(false)
-            setError(true)
-        })
+            .catch(() => {
+                !error ? setFound(false) : setError(true)
+                setLoading(false)
+            })
     }, [userId])
 
-    const userRepos = user.totalRepos === 0 
-    ?
-    <div className="no-repos-wrapper">
-        <img className="no-repos-icon" src={noReposIcon} alt="no-repos"/>
-        <div className="no-repos-text">Repository list is empty</div>
-    </div>
-    :
-    repositories.map((repo, i) => {
+    useEffect(() => {
+        setTotalRepos(repositories.length)
+    }, [repositories])
+
+    if (loading)
         return (
-            <div key={repo.name} className="repo-wrapper">
-                <a target="_blank" href={repo.html_url} className="repo-name">{repo.name}</a>
-                <div className="repo-descr">{repo.description}</div>
+            <div className="spinner loadingio-spinner-spinner-feltka1g4h">
+                <div className="ldio-atppvq17aw">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         )
-    })
 
-    if (error) return  <div className="error-wrapper">
-        <img className="error-icon" src={errorIcon} alt="no-user"/>
-        <div className="error-text">Error...</div>
-    </div>
-    if (!found) return  <div className="user-not-found-wrapper">
-        <img className="no-user-icon" src={noUserIcon} alt="no-user"/>
-        <div className="no-user-text">User not found</div>
-    </div>
-    return <div className="user-wrapper">
-        <div className="personal-data">
-            <img className="user-photo" src={user.avatar ? user.avatar : userIcon} alt="user-icon" />
-            <div className="user-name">{user.name}</div>
-            <a target="_blank" className="login" href={user.url}>{user.login}</a>
-            <div className="followers-wrapper">
-                <div className="followers">
-                    <img className="follower-icon" src={followersIcon} alt="followers" />
-                    {user.followers} followers
-                </div>
-                <div className="following">
-                    <img className="follower-icon" src={followingIcon} alt="followers" />
-                    {user.following} following
-                </div>
-            </div>
+    else if (error)
+        return <div className="error-wrapper">
+            <img className="error-icon" src={errorIcon} alt="no-user" />
+            <div className="error-text">Error...</div>
         </div>
+    else if (!found)
+        return <div className="user-not-found-wrapper">
+            <img className="no-user-icon" src={noUserIcon} alt="no-user" />
+            <div className="no-user-text">User not found</div>
+        </div>
+
+    return <div className="user-wrapper">
+        <PersonalInfo user={user} />
         <div className="repos-wrapper">
             <div className="total-repos">
-                Repositories ({user.totalRepos})
+                Repositories ({totalRepos})
             </div>
             <div className="repos">
-                {userRepos}
+                <ShownRepos
+                    repos={currentRepos} />
             </div>
+            <Pagination
+                currentPage={currentPage}
+                firstIndex={indexOfFirstRepo}
+                lastIndex={indexOfLastRepo}
+                totalRepos={totalRepos}
+                paginate={paginate}
+                nextPage={nextPage}
+                prevPage={prevPage}
+            />
         </div>
-        <Pagination
-          activePage={1}
-          itemsCountPerPage={10}
-          totalItemsCount={450}
-          pageRangeDisplayed={5}
-        />
     </div>
-
 }
 
 export default User;

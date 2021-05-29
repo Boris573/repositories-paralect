@@ -1,0 +1,91 @@
+.pages-choice {
+    margin-right: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.repos-amount-on-page {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #808080;
+    margin-right: 20px;
+}
+
+.page-item {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    max-height: 30px;
+}
+
+.page-arrow {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.page-link {
+    margin: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #808080;
+}
+
+.page-link-space {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #808080;
+    margin-top: 5px;
+}
+
+.page-arrow-icon {
+    fill: #808080;
+    margin-top: 3px;
+    height: 15px;
+    width: 10px;
+}
+
+.page-arrow-icon:hover {
+    fill: #0064EB;
+}
+
+.active {
+    /* height: 25px; */
+    text-decoration: none;
+    background: #0064EB;
+    border-radius: 3px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF !important; 
+}
+
+
+@media screen and (max-width: 700px) { 
+    .pages-choice {
+        margin-right: 0;
+        justify-content: center;
+    }
+}

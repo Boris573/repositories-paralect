@@ -1,0 +1,70 @@
+.no-repos-icon {
+    width: 110px;
+    height: 110px;
+}
+
+.no-repos-text {
+    width: 30%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 140%;
+    text-align: center;
+    color: #808080;
+}
+
+.repo-wrapper {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 32px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.repo-name {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 29px;
+    color: #0064EB;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.repo-descr {
+    background-color: #fff;
+    min-height: 30px;
+    margin-bottom: -10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}
+
+@media screen and (max-width: 700px) { 
+    .repo-name {
+        font-size: 18px;
+    }
+    
+    .repo-descr {
+        font-size: 13px;
+    }
+
+    .repo-wrapper {
+        width: 80%;
+        margin: 10px
+    }
+}
+
+@media screen and (max-width: 500px) { 
+    .repo-wrapper {
+        padding: 10px 16px;
+    }
+}
