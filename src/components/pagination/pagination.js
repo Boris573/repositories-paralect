@@ -15,13 +15,15 @@ const Pagination = ({ currentPage, firstIndex, lastIndex, totalRepos,
         if (totalRepos > 0) {
             setPagesNumbers(Math.ceil(totalRepos / 4))
             if (pagesNumbers === 1) setShowPagesNumber([1])
-            else if (pagesNumbers < 5) setShowPagesNumber(() => {
+            else if (pagesNumbers < 6) setShowPagesNumber(() => {
                 const newArr = []
                 for (let i = 1; i <= pagesNumbers; i++) newArr.push(i)
                 return newArr 
             })
             else if (currentPage === 1 || currentPage === 2) setShowPagesNumber([1, 2, 3, '...', pagesNumbers])
+            else if (currentPage === 3) setShowPagesNumber([1, 2, 3, 4, '...', pagesNumbers])
             else if (currentPage === pagesNumbers || currentPage === pagesNumbers - 1) setShowPagesNumber([1, '...', pagesNumbers - 2, pagesNumbers - 1, pagesNumbers])
+            else if (currentPage === pagesNumbers - 2) setShowPagesNumber([1, '...', pagesNumbers - 3, pagesNumbers - 2, pagesNumbers - 1, pagesNumbers])
             else setShowPagesNumber(() => {
                 return [1, '...', currentPage-1, currentPage, currentPage+1, '...', pagesNumbers]})
         }
